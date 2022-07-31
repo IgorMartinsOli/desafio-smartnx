@@ -10,9 +10,9 @@ let datas = [{id: 1, nome: 'juca', sobrenome: 'da silva', idade: 42},{id:2, nome
     nome: 'matheus', sobrenome: 'garcia', idade: 28}, {id: 4, nome:  'gabriel', sobrenome: 'pinheiro', idade: 21}]
 
 let saudarTodos = (datas) => {
-    for(data in datas) {
-        let aux = data[0]['nome'];
-        console.log(aux);
+    for(let i = 0; i < datas.length; i++) {
+        let nome = `${datas[i].nome}`
+        console.log(`Olá, ${nome[0].toUpperCase() + nome.substring(1)} ${datas[i].sobrenome}`)
     }
 }
 
