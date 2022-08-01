@@ -7,14 +7,13 @@ const Comentario = connection.define('comentario', {
     description: {
         type: Sequelize.STRING,
         allowNull: true
-    },
+    }
 })
 
-Comentario.belongsTo(Post, {
-    constraint: true,
-})
+Comentario.belongsTo(Post)
 
 Post.hasMany(Comentario)
+
 
 //Comentario.sync({force: true})
 

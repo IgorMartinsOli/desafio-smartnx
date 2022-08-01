@@ -16,15 +16,14 @@ router.get('/', (req, res) => {
 router.post('/new', (req, res) => {
     let description = req.body.description;
     let urlImage = req.body.urlImage;
-    let comentarios = null;
+    let comentarios = [];
 
     Post.create({
         description: description,
         urlImage: urlImage,
         comentarios: comentarios
     }).then(post => {
-        console.log(post);
-        return res.status(201).json({post: post});
+        return res.status(201).json(post);
     }).catch((err) => {
         return res.status(400).json({msg: "Error creating post", err: err.message})
     })
@@ -40,7 +39,7 @@ router.post('/edit', (req, res) => {
         urlImage: urlImage,},
         {where: {id: id}}
         ).then((post) => {
-        return res.status(201).json({post: post})
+        return res.status(201).json(post)
     }).catch((err) => {
         return res.status(400).json({msg: "Error edit post", err: err.message});
     })

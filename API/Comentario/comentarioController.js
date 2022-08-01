@@ -12,16 +12,16 @@ router.get('/', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
+    let postId = req.body.postId;
     let description = req.body.description;
-    let postId = req.body.idPost;
 
     Comentario.create({
         description: description,
         postId: postId
-    }).then((response) => {
-        res.status(200).json({comentario: response})
-    }).catch((err) => {
-        return res.status(400).json({err: err.message})
+    }).then(comentario => {
+        return res.status(200).json(comentario);
+    }).catch(err => {
+        return res.status(400).json({ err: err.message });
     })
 })
 
