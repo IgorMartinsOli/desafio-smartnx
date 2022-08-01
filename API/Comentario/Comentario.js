@@ -7,7 +7,7 @@ const Comentario = connection.define('comentarios', {
     description: {
         type: Sequelize.STRING,
         allowNull: true
-    }
+    }, id
 })
 Comentario.belongsTo(Post, {
     constraint: true,

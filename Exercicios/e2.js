@@ -1,4 +1,4 @@
-//E.1 Crie uma função que recebe dois argumentos string e retorna o de maior comprimento.
+//E.2 Crie uma função que recebe três argumentos, uma função e duas string, aplique a função nas duas string e imprima o resultado.
 function maiorString(string1, string2) {
     return string1.length > string2.length ? string1 : string2;
 }
