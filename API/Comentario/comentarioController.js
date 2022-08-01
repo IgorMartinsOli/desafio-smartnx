@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Comentario = require('../Comentario/Comentario')
+const Comentario = require('./Comentario')
 
 router.get('/', (req, res) => {
     Comentario.findAll()
@@ -18,8 +18,8 @@ router.post('/new', (req, res) => {
     Comentario.create({
         description: description,
         postId: postId
-    }).then(comentario => {
-        return res.status(200).json(comentario);
+    }).then(coment => {
+        return res.status(200).json(coment);
     }).catch(err => {
         return res.status(400).json({ err: err.message });
     })

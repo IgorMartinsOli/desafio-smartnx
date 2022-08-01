@@ -3,18 +3,15 @@ const Sequelize = require('sequelize');
 const connection = require('../database/database');
 const Post = require('../Post/Post');
 
-const Comentario = connection.define('comentario', {
+const Comentario = connection.define('comentarios', {
     description: {
         type: Sequelize.STRING,
         allowNull: true
     }
 })
-
-Comentario.belongsTo(Post)
-
+Comentario.belongsTo(Post, {
+    constraint: true,
+})
 Post.hasMany(Comentario)
-
-
 //Comentario.sync({force: true})
-
 module.exports = Comentario;
